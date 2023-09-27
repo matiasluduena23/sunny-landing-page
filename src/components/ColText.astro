@@ -1,0 +1,55 @@
+---
+const { title, body, link } = Astro.props;
+---
+
+<section class="flex">
+    <h2>Transform your brand</h2>
+    <p>
+        We are a full-service creative agency specializing in helping brands
+        grow fast. Engage your clients through compelling visuals that do most
+        of the marketing for you.
+    </p>
+    <a href="#">learn more</a>
+</section>
+
+<style>
+    section {
+        text-align: center;
+        padding: 1.5rem;
+        flex-direction: column;
+        gap: 2rem;
+        margin-block: 2rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+        color: var(--very-dark-blue);
+    }
+
+    p {
+        color: var(--dark-gray);
+        font-family: var(--ff-1);
+        line-height: 1.6;
+    }
+
+    a {
+        text-transform: uppercase;
+        color: var(--very-dark-blue);
+        font-weight: 900;
+        letter-spacing: 2px;
+        position: relative;
+        z-index: 1;
+    }
+
+    a::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: -5px;
+        height: 0.7rem;
+        width: 10rem;
+        border-radius: 5px;
+        background-color: var(--yellow-clr);
+        z-index: -1;
+    }
+</style>

@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+import imgEggMobile from '../assets/mobile/image-transform.jpg';
+import imgEggDesktop from '../assets/desktop/image-transform.jpg';
+import imgStandMobile from '../assets/mobile/image-stand-out.jpg';
+import imgStandDesktop from '../assets/desktop/image-stand-out.jpg';
+import ColText from '../components/ColText.astro';
+---
+
+<main>
+    <picture>
+        <source srcset={imgEggMobile.src} media="min-width: 800px" />
+        <Image src={imgEggDesktop} alt="egg picture" />
+    </picture>
+
+    <ColText />
+    <picture>
+        <source srcset={imgStandMobile.src} media="min-width: 800px" />
+        <Image src={imgStandDesktop} alt="egg picture" />
+    </picture>
+    <ColText />
+</main>
+
+<style>
+    main {
+        display: grid;
+        grid-template-columns: repeat(1fr);
+    }
+
+    picture img {
+        height: 100%;
+    }
+
+    @media (min-width: 800px) {
+        main {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+</style>
