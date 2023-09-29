@@ -1,0 +1,44 @@
+---
+import { Image } from 'astro:assets';
+const { imgSrc, imgAlt, name, description, profetion } = Astro.props;
+---
+
+<div class="card flex">
+    <Image src={imgSrc} alt={imgAlt} />
+    <p>{description}</p>
+
+    <div class="wrap">
+        <h2>{name}</h2>
+        <p>{profetion}</p>
+    </div>
+</div>
+
+<style>
+    .card {
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: 5rem;
+        text-align: center;
+        padding-inline: 2rem;
+    }
+    .card img {
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+    }
+
+    .card > p {
+        font-family: var(--ff-1);
+        line-height: 1.6;
+        color: var(--very-dark-gray);
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .wrap p:last-child {
+        margin-top: 0.7rem;
+        font-family: var(--ff-1);
+        color: var(--gray-blue);
+    }
+</style>

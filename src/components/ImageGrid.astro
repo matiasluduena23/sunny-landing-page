@@ -1,0 +1,48 @@
+---
+import { Image } from 'astro:assets';
+import FullImage from '../components/FullImage.astro';
+import imgMilkMobile from '../assets/mobile/image-gallery-milkbottles.jpg';
+import imgOrangeMobile from '../assets/mobile/image-gallery-orange.jpg';
+import imgConeMobile from '../assets/mobile/image-gallery-cone.jpg';
+import imgSugarMobile from '../assets/mobile/image-gallery-sugar-cubes.jpg';
+import imgMilkDesktop from '../assets/desktop/image-gallery-milkbottles.jpg';
+import imgOrangeDesktop from '../assets/desktop/image-gallery-orange.jpg';
+import imgConeDesktop from '../assets/desktop/image-gallery-cone.jpg';
+import imgSugarDesktop from '../assets/desktop/image-gallery-sugarcubes.jpg';
+---
+
+<section>
+    <FullImage
+        imgSrcDesktop={imgMilkDesktop}
+        imgSrcMobile={imgMilkMobile}
+        altText="milk picture"
+    />
+    <FullImage
+        imgSrcDesktop={imgOrangeDesktop}
+        imgSrcMobile={imgOrangeMobile}
+        altText="orange picture"
+    />
+    <FullImage
+        imgSrcDesktop={imgConeDesktop}
+        imgSrcMobile={imgConeMobile}
+        altText="cone picture"
+    />
+    <FullImage
+        imgSrcDesktop={imgSugarDesktop}
+        imgSrcMobile={imgSugarMobile}
+        altText="sugar picture"
+    />
+</section>
+
+<style>
+    section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 800px) {
+        section {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+</style>

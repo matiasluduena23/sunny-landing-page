@@ -1,18 +1,14 @@
 ---
-const { title, body, link } = Astro.props;
+const { title, body, link, linkColor } = Astro.props;
 ---
 
-<section class="flex">
-    <h2>Transform your brand</h2>
-    <p>
-        We are a full-service creative agency specializing in helping brands
-        grow fast. Engage your clients through compelling visuals that do most
-        of the marketing for you.
-    </p>
-    <a href="#">learn more</a>
+<section class="flex grid-item">
+    <h2>{title}</h2>
+    <p>{body}</p>
+    <a href="#">{link}</a>
 </section>
 
-<style>
+<style define:vars={{ linkColor }}>
     section {
         text-align: center;
         padding: 1.5rem;
@@ -49,7 +45,32 @@ const { title, body, link } = Astro.props;
         height: 0.7rem;
         width: 10rem;
         border-radius: 5px;
-        background-color: var(--yellow-clr);
+        background-color: var(--linkColor);
         z-index: -1;
+    }
+    @media (min-width: 800px) {
+        section {
+            justify-content: center;
+            align-items: start;
+            text-align: left;
+            padding-inline: 1rem;
+            margin-block: 0;
+        }
+    }
+
+    @media (min-width: 1000px) {
+        section {
+            padding-inline: 4rem;
+        }
+    }
+    @media (min-width: 1200px) {
+        section {
+            padding-right: 7rem;
+            padding-left: 8rem;
+        }
+
+        h2 {
+            font-size: 3rem;
+        }
     }
 </style>

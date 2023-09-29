@@ -1,8 +1,9 @@
 ---
 import '../style/global.css';
-import SectionTwoCol from '../components/SectionTwoCol.astro';
-import imgArrow from '../assets/images/icon-arrow-down.svg';
-import { Image } from 'astro:assets';
+import SectionOne from '../components/Section-1.astro';
+import SectionTwo from '../components/Section-2.astro';
+import SectionThree from '../components/Section-3.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <html lang="en">
@@ -14,45 +15,9 @@ import { Image } from 'astro:assets';
         <title>Astro</title>
     </head>
     <body>
-        <main>
-            <h1>We are creatives</h1>
-            <Image src={imgArrow} alt="icon arrow down" />
-        </main>
-        <SectionTwoCol />
+        <SectionOne />
+        <SectionTwo />
+        <SectionThree />
+        <Footer />
     </body>
-    <style>
-        main {
-            background-image: url('../assets/mobile/image-header.jpg');
-            background-repeat: no-repeat;
-            background-position: top center;
-            background-size: 100% 100%;
-            min-height: 65vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 5rem;
-        }
-        h1 {
-            color: white;
-            font-size: 2.8rem;
-            font-weight: 900;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 6px;
-        }
-
-        @media (min-width: 800px) {
-            main {
-                background-image: url('../assets/desktop/image-header.jpg');
-                min-height: 100vh;
-                padding-bottom: 10rem;
-                gap: 8rem;
-            }
-
-            h1 {
-                font-size: 5rem;
-            }
-        }
-    </style>
 </html>

@@ -1,0 +1,60 @@
+---
+import { Image } from 'astro:assets';
+import iconFacebook from '../assets/images/icon-facebook.svg';
+import iconInstagram from '../assets/images/icon-instagram.svg';
+import iconTwitter from '../assets/images/icon-twitter.svg';
+import iconPinterest from '../assets/images/icon-pinterest.svg';
+---
+
+<footer class="flex">
+    <h1>sunnyside</h1>
+    <ul class="flex">
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Projects</a></li>
+    </ul>
+    <ul class="flex">
+        <li>
+            <a href="#"><Image src={iconFacebook} alt="facebook icon" /></a>
+        </li>
+        <li>
+            <a href="#"><Image src={iconInstagram} alt="instagram icon" /></a>
+        </li>
+        <li><a href="#"><Image src={iconTwitter} alt="twitter icon" /></a></li>
+        <li>
+            <a href="#"><Image src={iconPinterest} alt="pinterest icon" /></a>
+        </li>
+    </ul>
+</footer>
+
+<style>
+    footer {
+        background-color: var(--mode-cyan);
+        padding: 5rem 2rem;
+        flex-direction: column;
+        align-items: normal;
+        text-align: center;
+        gap: 3rem;
+        font-family: var(--ff-1);
+    }
+
+    h1 {
+        color: var(--dark-cyan);
+        font-weight: 600;
+    }
+
+    a {
+        color: var(--dark-blue);
+    }
+
+    footer ul:first-child {
+        justify-content: space-between;
+        max-width: 400px;
+    }
+
+    footer ul:last-child {
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+</style>

@@ -1,0 +1,52 @@
+---
+import CardTestimonial from './CardTestimonial.astro';
+import { getCollection } from 'astro:content';
+
+const testimonials = await getCollection('testimonial');
+---
+
+<section>
+    <h1>Client testimonials</h1>
+    <div class="flex">
+        {
+            testimonials.map((testimonial) => (
+                <CardTestimonial
+                    imgSrc={testimonial.data.imageSrc}
+                    imgAlt={testimonial.data.imageAlt}
+                    name={testimonial.data.name}
+                    description={testimonial.data.description}
+                    profetion={testimonial.data.profetion}
+                />
+            ))
+        }
+    </div>
+</section>
+<style>
+    section {
+        margin-block: 4rem;
+    }
+    .flex {
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--dark-gray);
+        letter-spacing: 3px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    @media (min-width: 800px) {
+        .flex {
+            flex-direction: row;
+        }
+    }
+    @media (min-width: 1000px) {
+        section {
+            margin-block: 6rem;
+            padding-inline: 3rem;
+        }
+    }
+</style>

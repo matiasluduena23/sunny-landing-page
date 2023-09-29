@@ -1,0 +1,74 @@
+---
+import { getEntryBySlug } from 'astro:content';
+import FullImage from './FullImage.astro';
+import ColText from '../components/ColText.astro';
+import ImageText from '../components/ImageText.astro';
+import imgEggMobile from '../assets/mobile/image-transform.jpg';
+import imgEggDesktop from '../assets/desktop/image-transform.jpg';
+import imgStandMobile from '../assets/mobile/image-stand-out.jpg';
+import imgStandDesktop from '../assets/desktop/image-stand-out.jpg';
+
+const service1 = await getEntryBySlug('service', 'service-1');
+const service2 = await getEntryBySlug('service', 'service-2');
+---
+
+<main>
+    <FullImage
+        imgSrcDesktop={imgEggDesktop}
+        imgSrcMobile={imgEggMobile}
+        altText="egg picture"
+    />
+    <ColText
+        title={service1.data.title}
+        body={service1.data.body}
+        link={service1.data.link}
+        linkColor="hsl(51, 100%, 49%)"
+    />
+
+    <FullImage
+        imgSrcDesktop={imgStandDesktop}
+        imgSrcMobile={imgStandMobile}
+        altText="stand picture"
+    />
+    <ColText
+        title={service2.data.title}
+        body={service2.data.body}
+        link={service2.data.link}
+        linkColor="hsl(7, 99%, 70%)"
+    />
+
+    <ImageText />
+    <ImageText />
+</main>
+
+<style is:global>
+    main {
+        display: grid;
+        grid-template-columns: repeat(1fr);
+    }
+
+    @media (min-width: 800px) {
+        main {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        main .grid-item:first-child {
+            order: 2;
+        }
+        main .grid-item:nth-child(2) {
+            order: 1;
+        }
+        main .grid-item:nth-child(3) {
+            order: 3;
+        }
+        main .grid-item:nth-child(4) {
+            order: 4;
+        }
+        main .grid-item:nth-child(5) {
+            order: 5;
+        }
+        main .grid-item:nth-child(6) {
+            order: 6;
+        }
+    }
+</style>
