@@ -2,19 +2,10 @@
 const { imgSrcDesktop, imgSrcMobile, altText } = Astro.props;
 ---
 
-<!-- <picture class="grid-item">
-    <source srcset={optimizedImage.src} media="min-width: 800px" />
-    <img src={imgSrcMobile.src} alt={altText} />
-</picture> -->
-<div class="grid-item">
-    <img
-        src={imgSrcMobile.src}
-        alt={altText}
-        srcset=`${imgSrcMobile.src} 300w,
-                ${imgSrcDesktop.src}1000w`
-        sizes="(max-width: 800px) 300px, (min-width: 800px) 1000px"
-    />
-</div>
+<picture class="grid-item">
+    <source srcset={imgSrcDesktop} media="(min-width: 800px)" />
+    <img src={imgSrcMobile} alt={altText} />
+</picture>
 
 <style>
     img {

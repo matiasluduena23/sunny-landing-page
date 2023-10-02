@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/images/logo.svg';
+import hamburger from '../assets/images/icon-hamburger.svg';
+import Navbar from './Navbar.astro';
+---
+
+<header class="container">
+    <div class="flex">
+        <div class="logo">
+            <Image src={logo} alt="logo" />
+        </div>
+        <Image class="hamburger" src={hamburger} alt="logo" />
+        <Navbar />
+    </div>
+</header>
+
+<style>
+    header {
+        padding: 2rem;
+        position: relative;
+    }
+
+    .hamburger {
+        display: none;
+        position: absolute;
+        top: 2.2rem;
+        right: 1rem;
+        cursor: pointer;
+    }
+
+    @media (max-width: 800px) {
+        .hamburger {
+            display: block;
+        }
+    }
+</style>

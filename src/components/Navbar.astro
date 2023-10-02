@@ -1,0 +1,87 @@
+---
+
+---
+
+<nav class="navigation">
+    <ul class="flex">
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<style>
+    ul {
+        gap: 1.2rem;
+    }
+
+    ul li a {
+        color: white;
+        font-family: var(--ff-1);
+        padding: 1rem 1.8rem;
+        border-radius: 30px;
+    }
+
+    ul li:last-child a {
+        color: black;
+        font-family: var(--ff-2);
+        font-size: 15px;
+        text-transform: uppercase;
+        background-color: white;
+    }
+
+    ul li a:hover,
+    ul li:last-child a:hover {
+        color: white;
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    @media (max-width: 800px) {
+        .navigation {
+            display: none;
+            position: absolute;
+            top: 6rem;
+            right: 1rem;
+            background-color: white;
+            width: 85%;
+            margin-inline: auto;
+            padding-block: 3rem;
+        }
+
+        .navigation::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            top: -20px;
+            right: 0;
+            border-style: solid;
+            border-width: 25px 22px 0 0;
+            border-color: transparent white transparent transparent;
+        }
+
+        .navigation.active {
+            display: block;
+        }
+
+        ul {
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        ul li a {
+            color: var(--very-dark-gray);
+        }
+
+        ul li:last-child a {
+            background-color: var(--yellow-clr);
+        }
+
+        ul li a:hover,
+        ul li:last-child a:hover {
+            color: black;
+            background-color: hsl(51, 100%, 49%, 0.3);
+        }
+    }
+</style>

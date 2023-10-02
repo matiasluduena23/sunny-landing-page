@@ -1,20 +1,23 @@
 ---
-
+const { title, description, imgMobile, imgDesktop } = Astro.props;
 ---
 
 <section class="grid-item">
-    <h2>Graphic design</h2>
-    <p>
-        Great design makes you memorable. We deliver artwork that underscores
-        your brand message and captures potential clients’ attention.
-    </p>
+    <h2>{title}</h2>
+    <p>{description}</p>
 </section>
 
-<style>
+<style
+    define:vars={{
+        bg: `url("${imgMobile.src}")`,
+        bg2: `url("${imgDesktop.src}")`,
+    }}
+>
     section {
-        background-image: url('../assets/mobile/image-graphic-design.jpg');
+        background-image: var(--bg);
         background-repeat: no-repeat;
         background-size: cover;
+        background-position: top;
         padding: 25rem 1rem 3rem 1rem;
         text-align: center;
     }
@@ -27,5 +30,24 @@
     p {
         font-family: var(--ff-1);
         color: var(--dark-cyan);
+    }
+
+    @media (min-width: 500px) {
+        section {
+            background-image: var(--bg2);
+            background-position: center;
+        }
+    }
+
+    @media (min-width: 900px) {
+        section {
+            padding: 25rem 7rem 3rem 7rem;
+        }
+    }
+
+    @media (min-width: 1100px) {
+        section {
+            padding: 25rem 10rem 3rem 10rem;
+        }
     }
 </style>

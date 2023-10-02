@@ -1,11 +1,15 @@
 ---
 import imgArrow from '../assets/images/icon-arrow-down.svg';
 import { Image } from 'astro:assets';
+import Header from './Header.astro';
 ---
 
 <main>
-    <h1>We are creatives</h1>
-    <Image src={imgArrow} alt="icon arrow down" />
+    <Header />
+    <div class="flex">
+        <h1>We are creatives</h1>
+        <Image src={imgArrow} alt="icon arrow down" />
+    </div>
 </main>
 
 <style>
@@ -15,11 +19,12 @@ import { Image } from 'astro:assets';
         background-position: top center;
         background-size: 100% 100%;
         min-height: 65vh;
-        display: flex;
+    }
+
+    .flex {
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 5rem;
+        padding-top: 3rem;
+        gap: 3rem;
     }
     h1 {
         color: white;
@@ -34,12 +39,17 @@ import { Image } from 'astro:assets';
             background-image: url('../assets/desktop/image-header.jpg');
             background-size: cover;
             min-height: 100vh;
-            padding-bottom: 10rem;
-            gap: 8rem;
         }
 
         h1 {
             font-size: 5rem;
+        }
+    }
+
+    @media (min-width: 890px) {
+        .flex {
+            padding-top: 5rem;
+            gap: 10rem;
         }
     }
 </style>

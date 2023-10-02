@@ -8,7 +8,7 @@ import iconPinterest from '../assets/images/icon-pinterest.svg';
 
 <footer class="flex">
     <h1>sunnyside</h1>
-    <ul class="flex">
+    <ul class="flex items">
         <li><a href="#">About</a></li>
         <li><a href="#">Services</a></li>
         <li><a href="#">Projects</a></li>
@@ -47,9 +47,17 @@ import iconPinterest from '../assets/images/icon-pinterest.svg';
         color: var(--dark-blue);
     }
 
-    footer ul:first-child {
-        justify-content: space-between;
-        max-width: 400px;
+    a:hover {
+        color: white;
+    }
+
+    img:hover {
+        filter: brightness(500%);
+    }
+
+    footer .items {
+        justify-content: center;
+        gap: 5rem;
     }
 
     footer ul:last-child {

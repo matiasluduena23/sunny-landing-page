@@ -3,71 +3,83 @@ import { getEntryBySlug } from 'astro:content';
 import FullImage from './FullImage.astro';
 import ColText from '../components/ColText.astro';
 import ImageText from '../components/ImageText.astro';
-import imgEggMobile from '../assets/mobile/image-transform.jpg';
-import imgEggDesktop from '../assets/desktop/image-transform.jpg';
 import imgStandMobile from '../assets/mobile/image-stand-out.jpg';
 import imgStandDesktop from '../assets/desktop/image-stand-out.jpg';
+import imgDesignMobile from '../assets/mobile/image-graphic-design.jpg';
+import imgDesignDesktop from '../assets/desktop/image-graphic-design.jpg';
+import imgPhotoMobile from '../assets/mobile/image-photography.jpg';
+import imgPhotoDesktop from '../assets/desktop/image-photography.jpg';
 
 const service1 = await getEntryBySlug('service', 'service-1');
 const service2 = await getEntryBySlug('service', 'service-2');
+const service3 = await getEntryBySlug('service', 'service-3');
+const service4 = await getEntryBySlug('service', 'service-4');
 ---
 
-<main>
+<main class="section-2">
     <FullImage
-        imgSrcDesktop={imgEggDesktop}
-        imgSrcMobile={imgEggMobile}
+        imgSrcDesktop="/images/desktop/image-transform.jpg"
+        imgSrcMobile="/images/mobile/image-transform.jpg"
         altText="egg picture"
     />
     <ColText
         title={service1.data.title}
         body={service1.data.body}
-        link={service1.data.link}
         linkColor="hsl(51, 100%, 49%)"
     />
 
     <FullImage
-        imgSrcDesktop={imgStandDesktop}
-        imgSrcMobile={imgStandMobile}
+        imgSrcDesktop="/images/desktop/image-stand-out.jpg"
+        imgSrcMobile="/images/mobile/image-stand-out.jpg"
         altText="stand picture"
     />
     <ColText
         title={service2.data.title}
         body={service2.data.body}
-        link={service2.data.link}
         linkColor="hsl(7, 99%, 70%)"
     />
 
-    <ImageText />
-    <ImageText />
+    <ImageText
+        title={service3.data.title}
+        description={service3.data.body}
+        imgMobile={imgDesignMobile}
+        imgDesktop={imgDesignDesktop}
+    />
+    <ImageText
+        title={service4.data.title}
+        description={service4.data.body}
+        imgMobile={imgPhotoMobile}
+        imgDesktop={imgPhotoDesktop}
+    />
 </main>
 
 <style is:global>
-    main {
+    .section-2 {
         display: grid;
         grid-template-columns: repeat(1fr);
     }
 
     @media (min-width: 800px) {
-        main {
+        .section-2 {
             grid-template-columns: repeat(2, 1fr);
         }
 
-        main .grid-item:first-child {
+        .section-2 .grid-item:first-child {
             order: 2;
         }
-        main .grid-item:nth-child(2) {
+        .section-2 .grid-item:nth-child(2) {
             order: 1;
         }
-        main .grid-item:nth-child(3) {
+        .section-2 .grid-item:nth-child(3) {
             order: 3;
         }
-        main .grid-item:nth-child(4) {
+        .section-2 .grid-item:nth-child(4) {
             order: 4;
         }
-        main .grid-item:nth-child(5) {
+        .section-2 .grid-item:nth-child(5) {
             order: 5;
         }
-        main .grid-item:nth-child(6) {
+        .section-2 .grid-item:nth-child(6) {
             order: 6;
         }
     }
